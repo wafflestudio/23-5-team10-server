@@ -74,7 +74,7 @@ class PostIntegrationTest
 
         @Ignore
         @Test
-        fun `should retrieve a feed for user`() {
+        fun `should retrieve a posts for user`() {
             // user의 피드(게시글 이미지 등)를 조회할 수 있다
 
             // given
@@ -88,9 +88,7 @@ class PostIntegrationTest
                     get("/api/v1/posts/feed/${member.id}")
                         .contentType(MediaType.APPLICATION_JSON),
                 ).andExpect(status().isOk)
-                // FeedResponse 구조: { "feedResponse": { "id": ..., "url": ... } }
-                // 데이터가 정상적으로 반환되는지 확인 (필드 존재 여부 확인)
-                .andExpect(jsonPath("$.data.feedResponse").exists())
+                .andExpect(jsonPath("$.data").exists())
         }
 
         @Test

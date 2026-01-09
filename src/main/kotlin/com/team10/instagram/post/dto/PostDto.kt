@@ -27,9 +27,7 @@ data class PostResponse(
     val updatedAt: LocalDateTime,
 )
 
-data class FeedResponse(
-    val feedResponse: List<PostImageResponse>,
-)
+typealias FeedResponse = List<PostResponse>
 
 data class PostImageResponse(
     val id: Long,
